@@ -2,6 +2,18 @@
 
 This project provides a graphical user interface (GUI) for controlling the Logitech G203 Prodigy / G203 LightSync Mouse LED settings. It allows users to easily interact with the mouse's LED features without needing to use the command line interface (CLI) directly.
 
+## How to install
+
+To install the app, run the following commands:
+
+```
+git clone https://github.com/phelipegustavo/fireflies-lightsync.git
+cd fireflies-lightsync
+./install-ubuntu
+```
+
+After that, you should be able to open the app from the applications menu. A sudo password is required.
+
 ## Project Structure
 
 ```
@@ -18,24 +30,6 @@ LightSync*
 └── README.md                 # Project documentation
 ```
 
-## Installation
-
-To install the required dependencies, run the following command:
-
-```
-pip install -r requirements.txt
-```
-
-## Usage
-
-To start the application, run the following command:
-
-```
-sudo python src/main.py
-```
-
-This will launch the GUI, allowing you to control the LED settings of your Logitech G203 mouse.
-
 ## Features
 
 - Off - Disable leds
@@ -48,6 +42,24 @@ This will launch the GUI, allowing you to control the LED settings of your Logit
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
+
+### Installation
+
+To install the required dependencies, run the following command:
+
+```
+pip install -r requirements.txt
+```
+
+### Usage
+
+To start the application, run the following command:
+
+```
+sudo python src/main.py
+```
+
+This will launch the GUI, allowing you to control the LED settings of your Logitech G203 mouse.
 
 ## License
 

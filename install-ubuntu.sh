@@ -34,7 +34,7 @@ chmod +x ${DST_SHORTCUT_FILE}
 
 # Replace Icon= and Exec= with absolute path in .desktop shortcut
 sed -i "s_Icon=_Icon=${DST_ICON_FILE}_g" ${DST_SHORTCUT_FILE}
-sed -i "s_Exec=_Exec=${DST_EXE_FILE} %f_g" ${DST_SHORTCUT_FILE}
+sed -i "s_Exec=_Exec=sudo ${DST_EXE_FILE} %f_g" ${DST_SHORTCUT_FILE}
 
 echo "Application installed in: ${EXE_PATH}"
 echo "Installation completed"
