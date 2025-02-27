@@ -20,7 +20,7 @@ After that, you should be able to open the app from the applications menu. A sud
 ## Project Structure
 
 ```
-LightSync*
+fireflies-lightsync*
 ├── src
 │   ├── main.py               # Entry point of the application
 │   ├── gui

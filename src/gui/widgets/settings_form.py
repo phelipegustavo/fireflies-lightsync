@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QSlider, QLabel, QPushButton, QComboBox, QColorDialog, QVBoxLayout, QFormLayout, QWidget
 from PySide6.QtCore import Qt
-from lib.g203_led import G203LEDController
+from controllers.g203_led import G203LEDController
 from gui.widgets.color_button import ColorButton
 
 styles = """
