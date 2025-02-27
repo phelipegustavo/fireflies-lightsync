@@ -3,19 +3,28 @@ from PySide6.QtCore import Qt
 from lib.g203_led import G203LEDController
 from gui.widgets.color_button import ColorButton
 
+styles = """
+#applyButton {
+  padding: 8px;
+}
+"""
+
 class SettingsForm(QWidget):
     def __init__(self):
         super().__init__()
-        
-        self.setWindowTitle("Mouse LED Control")
-        self.setGeometry(100, 100, 400, 300)
-
         self.controller = G203LEDController()
+        self.setStyleSheet(styles)
         self.setup()
 
     def setup(self):
-        # Form
-        self.formLayout = QFormLayout(verticalSpacing=16)
+        # QWidget to contain the form layout
+        self.formContainer = QWidget()
+        self.formContainer.setObjectName("formContainer")
+
+        # Form layout inside the container
+        self.formLayout = QFormLayout(self.formContainer)
+        self.formLayout.setVerticalSpacing(16)
+
         
         # Effect combobox
         self.effectComboBox = QComboBox()
@@ -43,12 +52,18 @@ class SettingsForm(QWidget):
 
         # Apply Button
         self.applyButton = QPushButton("Apply")
+        self.applyButton.setObjectName("applyButton")
         self.applyButton.clicked.connect(self.on_apply_clicked)
         self.formLayout.addRow(self.applyButton)
 
         # Form
         self.hide_form_elements()
-        self.setLayout(self.formLayout)
+        
+        # Set main layout
+        mainLayout = QVBoxLayout(self)
+        mainLayout.addWidget(self.formContainer)
+        self.setLayout(mainLayout)
+
         
     def hide_form_elements(self):
         self.formLayout.setRowVisible(self.colorButton, False)

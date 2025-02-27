@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Fireflies Light Sync
+GenericName=Fireflies Light Sync
+Comment=Sync mouse led lights
+Icon=
+Exec=
+Categories=Utility;
+Keywords=Light;Sync;Mouse;
+Terminal=false
+MimeType=application/fireflies-light-sync;
