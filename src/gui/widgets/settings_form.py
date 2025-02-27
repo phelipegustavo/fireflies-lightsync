@@ -28,13 +28,21 @@ class SettingsForm(QWidget):
         
         # Effect combobox
         self.effectComboBox = QComboBox()
-        self.effectComboBox.addItems(["Off", "Fixed", "Color wave", "Breathing"])
+        self.effectComboBox.addItems(["Off", "Fixed", "Color wave", "Breathing", "Custom"])
         self.effectComboBox.currentTextChanged.connect(self.on_effect_text_changed)
         self.formLayout.addRow(self.tr("&Effect:"), self.effectComboBox)
 
         # Color Button
         self.colorButton = ColorButton(color="#00AAE0")
         self.formLayout.addRow(self.tr("&Color:"), self.colorButton)
+        
+        # Custom colors
+        self.leftColorButton = ColorButton(color="#FF0000")
+        self.formLayout.addRow(self.tr("&Left Color:"), self.leftColorButton)
+        self.centerColorButton = ColorButton(color="#00FF00")
+        self.formLayout.addRow(self.tr("&Center Color:"), self.centerColorButton)
+        self.rightColorButton = ColorButton(color="#0000FF")
+        self.formLayout.addRow(self.tr("&Right Color:"), self.rightColorButton)
         
         # Rate Slider
         self.rateSlider = QSlider(Qt.Horizontal)
@@ -69,6 +77,9 @@ class SettingsForm(QWidget):
         self.formLayout.setRowVisible(self.colorButton, False)
         self.formLayout.setRowVisible(self.rateSlider, False)
         self.formLayout.setRowVisible(self.brightnessSlider, False)
+        self.formLayout.setRowVisible(self.leftColorButton, False)
+        self.formLayout.setRowVisible(self.centerColorButton, False)
+        self.formLayout.setRowVisible(self.rightColorButton, False)
 
     def on_effect_text_changed(self, text):
         self.hide_form_elements()
@@ -82,6 +93,10 @@ class SettingsForm(QWidget):
             case "Color wave":
                 self.formLayout.setRowVisible(self.rateSlider, True)
                 self.formLayout.setRowVisible(self.brightnessSlider, True)
+            case "Custom":
+                self.formLayout.setRowVisible(self.leftColorButton, True)
+                self.formLayout.setRowVisible(self.centerColorButton, True)
+                self.formLayout.setRowVisible(self.rightColorButton, True)
 
     def on_apply_clicked(self):
         effect = self.effectComboBox.currentText()
@@ -89,7 +104,8 @@ class SettingsForm(QWidget):
             "Off": self.set_off,
             "Fixed": self.set_fixed_color,
             "Color wave": self.set_color_wave,
-            "Breathing": self.set_breathing
+            "Breathing": self.set_breathing,
+            "Custom": self.set_custom,
         }
         effects.get(effect)()
 
@@ -118,4 +134,14 @@ class SettingsForm(QWidget):
             self.controller.process_color(color),
             self.controller.process_rate(rate),
             self.controller.process_brightness(brightness),
+        )
+    
+    def set_custom(self):
+        leftColor = self.leftColorButton.color()
+        centerColor = self.centerColorButton.color()
+        rightColor = self.rightColorButton.color()
+        self.controller.set_ls_triple(
+            self.controller.process_color(leftColor),
+            self.controller.process_color(centerColor),
+            self.controller.process_color(rightColor),
         )

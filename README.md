@@ -34,9 +34,9 @@ fireflies-lightsync*
 │   ├── gui
 │   │   ├── __init__.py       # GUI package initializer
 │   │   ├── main_window.py    # Main window class for the GUI
-│   ├── lib
-│   │   ├── __init__.py       # CLI package initializer
-│   │   └── g203_led.py       # CLI logic for controlling the mouse
+│   ├── controllers
+│   │   ├── __init__.py       # Controllers package initializer
+│   │   └── g203_led.py       # logic for controlling the mouse
 ├── requirements.txt          # Project dependencies
 └── README.md                 # Project documentation
 ```
@@ -47,8 +47,8 @@ fireflies-lightsync*
 - Fixed - Single color mode
 - Wave - Cycle all colors from left to right
 - Breathing - Single color Breathing
+- Custom Colors - Define a fixed color for each LED
 - DPI settings - **TBD**
-- Custom Colors - **TBD**
 
 ## Contributing
 
