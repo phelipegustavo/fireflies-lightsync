@@ -7,5 +7,5 @@ Icon=
 Exec=
 Categories=Utility;
 Keywords=Light;Sync;Mouse;
-Terminal=false
+Terminal=true
 MimeType=application/fireflies-light-sync;
