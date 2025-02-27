@@ -1,6 +1,9 @@
-# LightSync
+# Fireflies Light Sync
 
 This project provides a graphical user interface (GUI) for controlling the Logitech G203 Prodigy / G203 LightSync Mouse LED settings. It allows users to easily interact with the mouse's LED features without needing to use the command line interface (CLI) directly.
+
+![image](https://github.com/user-attachments/assets/9bfdd926-b285-4899-bd10-0ae0c588d9c6)
+
 
 ## How to install
 
