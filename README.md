@@ -1,5 +1,7 @@
 <div align="center">
-  <img src="./fireflies-light-sync.svg" />
+
+![fireflies-light-sync](https://github.com/user-attachments/assets/92f90439-f9a1-47d1-a2ba-deca33ffb3f8)
+
 </div>
 
 <h1 align="center">
@@ -16,8 +18,12 @@ Inspired by and based on [g203-led](https://github.com/smasty/g203-led).
 ## How to install
 
 To install the app, run the following commands:
-
+### Prerequisites
+```shell
+sudo apt install libxcb-cursor0
 ```
+### Install
+```shell
 git clone https://github.com/phelipegustavo/fireflies-lightsync.git
 cd fireflies-lightsync
 ./install-ubuntu
